@@ -39,10 +39,10 @@ app.use(function(req, res, next){
 
     next();  // we/o next non of the routing below will take place
 })
-app.use(function(req, res, next){
+/* app.use(function(req, res, next){
     res.render('maintenance.hbs');
     // everything sstops because no next function
-});
+}); */
 
 app.use(express.static(__dirname + '/public'));  // --dirname provides path to application (node-web-server)
 
@@ -73,6 +73,12 @@ app.get('/bad', function(req,res){
         });
 });
 
+app.get('/PROJECT', function(req,res){    
+    res.render('project.hbs',{
+        pageTitle: 'Project Page',
+        welcomeMsg: 'Welcome!'
+    });
+});
 
 
 app.listen(port);  // port to listen on
